@@ -1,2 +1,4 @@
 <app-navbar [links]="links" class="nav-bar"></app-navbar>
-<p>home works!</p>
+<div class="card-container">
+    <app-card *ngFor="let card of cards" [imageUrl]="card.imageUrl" [title]="card.title" [description]="card.description"></app-card>
+<div>
