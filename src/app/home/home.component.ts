@@ -9,15 +9,34 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  // links!: {text:string, url:string}[];
-  cards!: { imageUrl: string; title: string; description: string }[];
+  //     {
+  //     "game_id": 5,
+  //     "game_name": "Kitchen Krapper",
+  //     "game_description": "Cooking simulation game.",
+  //     "game_spotlight_image": "http://playcenter-api-production.up.railway.app/media/game/images/game_spotlight_images/img_001.png",
+  //     "game_status": "Coming Soon"
+  // }
+
+  //  Get these data from the API
+  games: {
+    game_id: number;
+    game_name: string;
+    game_description: string;
+    game_spotlight_image: string;
+    game_status: string;
+  }[] = [];
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    // this.http.get('#').subscribe((response: any) => {
-    //   this.links = response.links;
-    // });
+    // API URL
+    const API_URL =
+      'https://playcenter-api-production.up.railway.app/playcenter/games/?format=json';
+
+    this.http.get(API_URL).subscribe((response: any) => {
+      this.games = response.results;
+      console.log(this.games);
+    });
   }
 
   links = [
@@ -27,23 +46,5 @@ export class HomeComponent implements OnInit {
   ];
 
   // Banner URL
-  // bannerImageUrl =
-
-  // cards = [
-  //   {
-  //     imageUrl: 'https://www.bing.com/images/create/ford-mustang-2023-realistic-4k-city-background-nig/6421ad25e1194fab955c7b99e426f960?id=xrED%2bSmuJALDgr63n%2f%2b%2bVQ%3d%3d&view=detailv2&idpp=genimg&FORM=GCRIDP&mode=overlay',
-  //     title: 'Card 1',
-  //     description: 'This is the description for card 1.'
-  //   },
-  //   {
-  //     imageUrl: 'https://www.bing.com/images/create/ford-mustang-2023-realistic-4k-city-background-nig/6421ad25e1194fab955c7b99e426f960?id=BXCWa%2bN4UbZUOy2HzkkQVw%3d%3d&view=detailv2&idpp=genimg&FORM=GCRIDP&mode=overlay',
-  //     title: 'Card 2',
-  //     description: 'This is the description for card 2.'
-  //   },
-  //   {
-  //     imageUrl: 'https://www.bing.com/images/create/ford-mustang-2023-realistic-4k-city-background-nig/6421ad25e1194fab955c7b99e426f960?id=LwlooyUtblMsTLaEG7xovA%3d%3d&view=detailv2&idpp=genimg&FORM=GCRIDP&mode=overlay',
-  //     title: 'Card 3',
-  //     description: 'This is the description for card 3.'
-  //   }
-  // ];
+  bannerImageUrl = 'assets/images/banner_001.jpg';
 }

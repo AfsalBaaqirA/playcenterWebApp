@@ -9,8 +9,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
   background-color: var(--bs-body-bg);
 }
 
@@ -18,20 +16,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
 }
 
-/* Fit the fullscreen image to the screen */
 .banner-image {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.banner-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: brightness(0.5) blur(60px) saturate(1.5);
 }
 
 .banner-text {
   position: absolute;
-  color: var(--bs-body-bg);
-  font-size: 2rem;
+  color: var(--bs-white);
+  font-size: 3rem;
   font-weight: 700;
   text-align: center;
 }
