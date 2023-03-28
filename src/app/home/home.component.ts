@@ -14,16 +14,18 @@ export class HomeComponent implements OnInit {
   //     "game_name": "Kitchen Krapper",
   //     "game_description": "Cooking simulation game.",
   //     "game_spotlight_image": "http://playcenter-api-production.up.railway.app/media/game/images/game_spotlight_images/img_001.png",
-  //     "game_status": "Coming Soon"
+  //     "game_status": "Coming Soon",
+  //      "game_release_date": "2023-03-27"
   // }
 
   //  Get these data from the API
   games: {
     game_id: number;
     game_name: string;
-    game_description: string;
+    game_short_description: string;
     game_spotlight_image: string;
     game_status: string;
+    game_release_date: Date;
   }[] = [];
 
   constructor(private http: HttpClient) {}
