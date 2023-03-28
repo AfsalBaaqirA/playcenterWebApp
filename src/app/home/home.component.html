@@ -1,4 +1,35 @@
 <app-navbar [links]="links" class="nav-bar"></app-navbar>
-<div class="card-container">
-    <app-card *ngFor="let card of cards" [imageUrl]="card.imageUrl" [title]="card.title" [description]="card.description"></app-card>
-<div>
+<!-- <button [cdkMenuTriggerFor]="menu" class="example-standalone-trigger">
+  Click me!
+</button> -->
+
+<ng-template #menu>
+  <div class="example-menu" cdkMenu>
+    <button class="example-menu-item" cdkMenuItem>Refresh</button>
+    <button class="example-menu-item" cdkMenuItem>Settings</button>
+    <button class="example-menu-item" cdkMenuItem>Help</button>
+    <button class="example-menu-item" cdkMenuItem>Sign out</button>
+  </div>
+</ng-template>
+
+<div class="app-container">
+  <div class="banner">
+    <div class="banner-image">
+      <!-- Dynamic Banner link -->
+    </div>
+    <div class="banner-text">
+      <h1>Playcenter</h1>
+      <p>Playcenter is a platform for playing games with your friends.</p>
+      <a class="btn btn-primary" href="#">Get Started</a>
+    </div>
+  </div>
+  <div class="card-container">
+    <app-card
+      *ngFor="let card of cards"
+      [imageUrl]="card.imageUrl"
+      [title]="card.title"
+      [description]="card.description"
+    ></app-card>
+    <div></div>
+  </div>
+</div>

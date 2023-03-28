@@ -1,15 +1,19 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+<nav class="navbar navbar-expand-lg bg-body-blur fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <div class="head">
-        <div class="eyes" style="padding-bottom: 0px; margin-right: 0px">
-          <div class="eye left"><span></span></div>
-          <div class="eye right"><span></span></div>
+      <div class="row">
+        <div class="col-5">
+          <div class="head">
+            <div class="eyes" style="padding-bottom: 0px; margin-right: 0px">
+              <div class="eye left"><span></span></div>
+              <div class="eye right"><span></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-1">
+          <h1>Playcenter</h1>
         </div>
       </div>
-      <span>
-        Play<span>center</span>
-      </span>
     </a>
     <button
       class="navbar-toggler"
@@ -22,7 +26,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div
-      class="offcanvas offcanvas-end"
+      class="offcanvas offcanvas-end bg-body-blur"
       tabindex="-1"
       id="offcanvasNavbar"
       aria-labelledby="offcanvasNavbarLabel"
@@ -40,6 +44,14 @@
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item" *ngFor="let link of links">
             <a class="nav-link" [routerLink]="link.url">{{ link.text }}</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Create Account</a>
           </li>
         </ul>
       </div>

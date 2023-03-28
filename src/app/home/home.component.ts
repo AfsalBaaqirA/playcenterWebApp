@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CardComponent } from '../cards/card.component';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
   // links!: {text:string, url:string}[];
-  cards!: {imageUrl:string, title:string, description:string}[];
+  cards!: { imageUrl: string; title: string; description: string }[];
 
   constructor(private http: HttpClient) {}
 
@@ -19,13 +19,15 @@ export class HomeComponent implements OnInit {
     //   this.links = response.links;
     // });
   }
-  
 
   links = [
-    {text: "Home", url: "/home"},
-    {text: "About", url: "/about"},
-    {text: "Contact", url: "/contact"},
+    { text: 'Home', url: '/home' },
+    { text: 'About', url: '/about' },
+    { text: 'Contact', url: '/contact' },
   ];
+
+  // Banner URL
+  // bannerImageUrl =
 
   // cards = [
   //   {
@@ -44,5 +46,4 @@ export class HomeComponent implements OnInit {
   //     description: 'This is the description for card 3.'
   //   }
   // ];
-
 }
