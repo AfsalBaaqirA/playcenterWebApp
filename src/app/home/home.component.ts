@@ -9,14 +9,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  //     {
-  //     "game_id": 5,
-  //     "game_name": "Kitchen Krapper",
-  //     "game_description": "Cooking simulation game.",
-  //     "game_spotlight_image": "http://playcenter-api-production.up.railway.app/media/game/images/game_spotlight_images/img_001.png",
-  //     "game_status": "Coming Soon",
-  //      "game_release_date": "2023-03-27"
-  // }
+  isDataLoaded = false;
 
   //  Get these data from the API
   games: {
@@ -33,11 +26,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     // API URL
     const API_URL =
-      'https://playcenter-api-production.up.railway.app/playcenter/games/?format=json';
+      'https://playcenter.azurewebsites.net/playcenter/games/?format=json';
 
     this.http.get(API_URL).subscribe((response: any) => {
       this.games = response.results;
-      console.log(this.games);
+      this.isDataLoaded = true;
     });
   }
 
@@ -48,5 +41,11 @@ export class HomeComponent implements OnInit {
   ];
 
   // Banner URL
-  bannerImageUrl = 'assets/images/banner_001.jpg';
+  bannerImageUrl = '/assets/images/banner_001.jpg';
+  placeholderImageUrl = '/assets/images/placeholder-image.jpg';
+
+  createRange(placeholdercount: number) {
+    // return new Array(number);
+    return new Array(placeholdercount).fill(0).map((n, index) => index + 1);
+  }
 }

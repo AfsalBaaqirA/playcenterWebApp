@@ -3,13 +3,18 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-card',
   template: `
-    <div class="card">
-      <img [src]="imageUrl" class="card-img-top" [alt]="title" />
-      <div class="card-body">
-        <h5 class="card-title">{{ title }}</h5>
-        <p class="card-text">{{ description }}</p>
-        <span class="badge text-bg-danger" *ngIf="showChip">{{ chip }}</span>
-        <a href="#" class="btn btn-primary">{{ getStatus }}</a>
+    <div class="col">
+      <div class="card h-100">
+        <img *ngIf="imageUrl" [src]="imageUrl" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{ title }}</h5>
+          <p class="card-text">{{ description }}</p>
+          <span class="badge text-bg-danger" *ngIf="showChip">{{ chip }}</span>
+          <!-- Set the path game details page -->
+          <a [routerLink]="['/game', game_id]" class="btn btn-primary">{{
+            getStatus
+          }}</a>
+        </div>
       </div>
     </div>
   `,
@@ -21,11 +26,14 @@ export class CardComponent {
   @Input() description!: string;
   @Input() status!: string;
   @Input() release_date!: Date;
+  @Input() game_id!: number;
 
   constructor() {}
 
   ngOnInit(): void {}
 
+  // Placeholder image URL
+  placeholderImageUrl = '/assets/images/placeholder-image.jpg';
   // Get current date
   get today() {
     return new Date();

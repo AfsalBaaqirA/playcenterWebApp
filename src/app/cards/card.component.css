@@ -1,25 +1,14 @@
-.card .card-body {
-    max-width: 250px;
-}
-
 .card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    overflow: hidden;
     filter: brightness(0.5);
     transition: 0.5s;
 }
 
-.card img:hover {
-    filter: brightness(0.8);
+.card:hover img {
+    filter: brightness(.8);
 }
 
 .card p {
     font-size: 0.8rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 .card .badge {
