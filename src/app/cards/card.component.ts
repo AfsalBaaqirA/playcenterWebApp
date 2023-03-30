@@ -1,19 +1,35 @@
 import { Component, Input } from '@angular/core';
+// const ColorThief = require('colorthief');
 
 @Component({
   selector: 'app-card',
   template: `
     <div class="col">
-      <div class="card h-100">
-        <img *ngIf="imageUrl" [src]="imageUrl" class="card-img-top" alt="..." />
+      <div
+        class="card"
+        [ngStyle]="{
+          background:
+            'linear-gradient(rgba(230, 182, 85, 0.3), rgba(230, 182, 85, 9)), url(' +
+            imageUrl +
+            ')'
+        }"
+      >
         <div class="card-body">
-          <h5 class="card-title">{{ title }}</h5>
-          <p class="card-text">{{ description }}</p>
+          <img *ngIf="imageUrl" [src]="imageUrl" class="icon" alt="..." />
+          <h4 class="card-title">{{ title }}</h4>
           <span class="badge text-bg-danger" *ngIf="showChip">{{ chip }}</span>
-          <!-- Set the path game details page -->
-          <a [routerLink]="['/game', game_id]" class="btn btn-primary">{{
-            getStatus
-          }}</a>
+          <div class="row row-col-2">
+            <div class="col">
+              <p class="card-text">{{ description }}</p>
+            </div>
+            <div class="col">
+              <a
+                [routerLink]="['/game', game_id]"
+                class="btn btn-light rounded-pill"
+                >{{ getStatus }}</a
+              >
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -28,12 +44,38 @@ export class CardComponent {
   @Input() release_date!: Date;
   @Input() game_id!: number;
 
-  constructor() {}
-
-  ngOnInit(): void {}
-
   // Placeholder image URL
   placeholderImageUrl = '/assets/images/placeholder-image.jpg';
+
+  public backgroundImageUrl: string =
+    'https://cdn.vox-cdn.com/thumbor/WQUdc3xNK0SKOW1Kjhoz05mp3EE=/0x266:1280x1024/1200x800/filters:focal(535x535:739x739)/cdn.vox-cdn.com/uploads/chorus_image/image/56638317/AnimalCrossing_wallpaper_1280x1024-C.0.jpg';
+
+  constructor() {}
+
+  ngOnInit(): void {
+    if (this.imageUrl === '') {
+      this.imageUrl = this.placeholderImageUrl;
+    }
+
+    const img = this.imageUrl;
+
+    // ColorThief.getColor(img)
+    //   .then((color: any) => {
+    //     console.log(color);
+    //   })
+    //   .catch((err: any) => {
+    //     console.log(err);
+    //   });
+
+    // ColorThief.getPalette(img, 5)
+    //   .then((palette: any) => {
+    //     console.log(palette);
+    //   })
+    //   .catch((err: any) => {
+    //     console.log(err);
+    //   });
+  }
+
   // Get current date
   get today() {
     return new Date();
@@ -62,7 +104,7 @@ export class CardComponent {
   get getStatus() {
     switch (this.status) {
       case 'Coming Soon':
-        return 'Coming Soon';
+        return 'GET';
       case 'Released':
         return 'Get Now';
       case 'Early Access':

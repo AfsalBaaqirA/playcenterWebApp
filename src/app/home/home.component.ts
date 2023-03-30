@@ -21,6 +21,19 @@ export class HomeComponent implements OnInit {
     game_release_date: Date;
   }[] = [];
 
+  // games: any = [
+  //   {
+  //     game_id: 5,
+  //     game_name: 'Kitchen Krapper',
+  //     game_short_description:
+  //       "Get organized and stay on top of your tasks with our powerful task management app. With intuitive features and seamless integration across devices, you'll never miss a deadline or forget an important task again.",
+  //     game_spotlight_image:
+  //       'https://res.cloudinary.com/dubwbz83k/image/upload/v1/media/game/images/game_spotlight_images/img_001_bt7maj',
+  //     game_status: 'Coming Soon',
+  //     game_release_date: '2023-04-05',
+  //   },
+  // ];
+
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
@@ -34,12 +47,6 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  links = [
-    { text: 'Home', url: '/home' },
-    { text: 'About', url: '/about' },
-    { text: 'Contact', url: '/contact' },
-  ];
-
   // Banner URL
   bannerImageUrl = '/assets/images/banner_001.jpg';
   placeholderImageUrl = '/assets/images/placeholder-image.jpg';
@@ -48,4 +55,16 @@ export class HomeComponent implements OnInit {
     // return new Array(number);
     return new Array(placeholdercount).fill(0).map((n, index) => index + 1);
   }
+
+  // Truncate text
+  truncateText(text: string, length: number) {
+    if (text.length > length) {
+      return text.substring(0, length) + '...';
+    } else {
+      return text;
+    }
+  }
+
+  // Use the truncateText function in the template
+  // <p class="card-text">{{ truncateText(game.game_short_description, 100) }}</p>
 }

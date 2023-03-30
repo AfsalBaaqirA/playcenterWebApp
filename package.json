@@ -20,10 +20,14 @@
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
+    "@mapbox/node-pre-gyp": "^1.0.10",
     "angular-colorthief": "^0.1.1",
+    "canvas": "^2.11.0",
+    "colorthief": "^2.4.0",
     "ngx-skeleton-loader": "^7.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "vibrant": "^0.0.1",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {

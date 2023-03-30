@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GameDetailsComponentComponent } from './game-details-component/game-details-component.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { GameDetailsComponentComponent } from './game-details-component/game-det
     NavbarComponent,
     CardComponent,
     GameDetailsComponentComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
