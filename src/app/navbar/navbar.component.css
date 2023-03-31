@@ -64,7 +64,7 @@
   width: 5px;
   height: 15px;
   border-radius: 2px;
-  background-color: var(--bs-primary);
+  background-color: var(--bs-info);
   margin: 0 8px;
   position: relative;
 }

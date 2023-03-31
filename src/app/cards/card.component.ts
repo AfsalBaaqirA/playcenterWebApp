@@ -15,10 +15,18 @@ import { Component, Input } from '@angular/core';
         }"
       >
         <div class="card-body">
-          <img *ngIf="imageUrl" [src]="imageUrl" class="icon" alt="..." />
+          <div class="row row-col-2 align-items-start">
+            <div class="col">
+            <img *ngIf="imageUrl" [src]="imageUrl" class="icon" alt="..." />
+            </div>
+            <div class="col">
+              <span class="badge text-bg-danger" *ngIf="showChip">{{
+                chip
+              }}</span>
+            </div>
+          </div>
           <h4 class="card-title">{{ title }}</h4>
-          <span class="badge text-bg-danger" *ngIf="showChip">{{ chip }}</span>
-          <div class="row row-col-2">
+          <div class="row row-col-2 align-items-end">
             <div class="col">
               <p class="card-text">{{ description }}</p>
             </div>

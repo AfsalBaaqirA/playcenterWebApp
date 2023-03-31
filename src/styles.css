@@ -7,5 +7,8 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif !important;
+  /* font-family: "Poppins", sans-serif !important; */
+  font-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue',
+    sans-serif !important;
+  /* font-family: Hevetica, Arial, sans-serif !important; */
 }

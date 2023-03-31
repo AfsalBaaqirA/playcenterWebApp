@@ -9,6 +9,16 @@
     position: relative;
     border: none;
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
+    width: 100%;
+}
+
+
+.card .card-body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 }
 
 .card img {
@@ -24,35 +34,30 @@
     color: #fff;
     font-weight: 700;
     line-height: normal;
-    margin-top: 2rem;
+    margin-bottom: 0;
 }
 
 .card .card-text {
     font-size: 0.8rem;
     color: #fff;
     width: 150px;
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
 }
 
 .card .badge {
     text-transform: uppercase;
     font-size: 0.8rem;
-    position: absolute;
-    top: 15px;
-    right: 15px;
+    float: right;
     padding: 0.5rem;
     animation: notify 0.5s ease-in-out infinite alternate;
 }
 
 @keyframes notify {
     0% {
-        transform: scale(1);
+        transform: scale(.9);
     }
 
     100% {
-        transform: scale(1.1);
+        transform: scale(1);
     }
 }
 
@@ -66,9 +71,6 @@
     font-size: 0.8rem;
     width: 60px;
     text-align: center;
-    padding: 3px;
     color: var(--bs-primary);
-    position: absolute;
-    bottom: 10px;
-    right: 20px;
+    float: right;
 }

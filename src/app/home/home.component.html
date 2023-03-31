@@ -18,16 +18,16 @@
                 <div class="col-12">
                     <h2 class="text-center">Check out our games</h2>
                     <p class="text-center">We have a wide variety of games for you to choose from</p>
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-                        <ng-container *ngIf="isDataLoaded; else skeleton">
+                    <div class="row" [ngClass]="getCardClasses()">
+                        <ng-container *ngIf=" isDataLoaded; else skeleton">
                             <app-card *ngFor="let game of games" [imageUrl]="game.game_spotlight_image"
-                                [title]="game.game_name" [description]="truncateText(game.game_short_description, 100)"
+                                [title]="game.game_name" [description]="truncateText(game.game_short_description, 50)"
                                 [status]="game.game_status" [release_date]="game.game_release_date"
                                 [game_id]="game.game_id">
                             </app-card>
                         </ng-container>
                         <ng-template #skeleton>
-                            <div *ngFor="let item of createRange(3)" class="skeleton" ngxSkeletonLoader>
+                            <div *ngFor="let item of createRange(4)" class="skeleton" ngxSkeletonLoader>
                                 <div class="col">
                                     <div class="card" aria-hidden="true">
                                         <img src="{{placeholderImageUrl}}" class="card-img-top" alt="...">
